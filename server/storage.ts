@@ -28,8 +28,7 @@ export interface IStorage {
 export class DatabaseStorage implements IStorage {
   // User methods
   async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(breeds).where(eq(breeds.id, id));
-    return user || undefined;
+    return undefined; // Not implemented for this app
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
@@ -180,7 +179,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteBreed(id: string): Promise<boolean> {
     const result = await db.delete(breeds).where(eq(breeds.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount || 0) > 0;
   }
 
   async createSubBreed(subBreed: InsertSubBreed): Promise<SubBreed> {
@@ -194,7 +193,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSubBreed(id: string): Promise<boolean> {
     const result = await db.delete(subBreeds).where(eq(subBreeds.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount || 0) > 0;
   }
 
   async getStats(): Promise<{ totalBreeds: number; totalSubBreeds: number }> {
