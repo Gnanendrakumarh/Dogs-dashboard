@@ -4,10 +4,10 @@ import { Dog, Search, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useDebounce } from "@/hooks/use-debounce";
-import { api } from "@/lib/api";
-import BreedTable from "@/components/breed-table";
-import BreedFormModal from "@/components/breed-form-modal";
+import { useDebounce } from "../hooks/use-debounce";
+import { api } from "../lib/api";
+import BreedTable from "../components/breed-table";
+import BreedFormModal from "../components/breed-form-modal";
 
 export default function BreedsPage() {
   const [searchQuery, setSearchQuery] = useState("");
