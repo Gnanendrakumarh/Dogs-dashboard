@@ -62,14 +62,20 @@ app.use((req, res, next) => {
   // It is the only port that is not firewalled.
   // const port = parseInt(process.env.PORT || '5000', 10);
   const port = parseInt(process.env.PORT || '8080', 10);
+
+// In production, always bind to 0.0.0.0
 const host = process.env.NODE_ENV === "development" ? "127.0.0.1" : "0.0.0.0";
 
-server.listen({ port, host }, () => {
+server.listen(port, host, () => {
+  app.get('/', (req, res) => {
+  res.send('Server is alive 🐾');
+});
   if (process.env.NODE_ENV === "development") {
     log(`Serving locally at http://${host}:${port}`);
   } else {
-    log(`Server running on port ${port}`);
+    log(`Server running on port ${port} (check Railway public URL)`);
   }
 });
+
 
 })();
