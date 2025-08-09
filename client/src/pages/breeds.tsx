@@ -41,7 +41,7 @@ export default function BreedsPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <Dog className="text-primary text-2xl" />
-              <h1 className="text-xl font-medium text-gray-900"> dashboard</h1>
+              <h1 className="text-xl font-medium text-gray-900"> dogs Web API</h1>
               <span className="hidden sm:inline-block bg-surface-200 text-gray-600 px-2 py-1 rounded text-sm">
                 Breed Management
               </span>
